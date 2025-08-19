@@ -22,20 +22,18 @@ QuickList é uma aplicação web simples que permite ao usuário adicionar e rem
 
 ```mermaid
 graph TD
-    A[Usuário digita no input] --> B[Clica em 'Adicionar item']
-    B --> C[Evento submit é interceptado pelo JS]
-    C --> D[Faz trim e verifica valor vazio]
-    D -->|valor válido| E[Chama addNewListItem]
-    E --> F[Cria <li> com input, label e botão]
-    F --> G[Adiciona <li> na UL da lista]
-    G --> H[Input limpo para novo item]
+   A[Usuario digita item no campo de texto] --> B[Clica em Adicionar item]
+   B --> C[JS intercepta evento submit]
+   C --> D[Valida se o campo nao esta vazio]
+   D -->|Valido| E[Cria novo item na lista]
+   E --> F[Adiciona li com checkbox, label e botao de remover]
+   F --> G[Limpa campo de texto para novo item]
 
-    subgraph Deleção
-    I[Usuário clica em botão X] --> J[Evento delegado no UL]
-    J --> K[Verifica se target possui class 'list-item-delete']
-    K --> L[Pega <li> mais próximo com closest 'li']
-    L --> M[Remove <li> do DOM]
-    M --> N[Mostra alerta removido]
+   subgraph Remocao de Item
+   H[Usuario clica no botao X] --> I[Evento delegado identifica o alvo]
+   I --> J[Remove o li correspondente]
+   J --> K[Exibe alerta de remocao]
+   K --> L[Usuario pode fechar alerta manualmente]
     end
 
     O[Usuário clica no botão de fechar alerta] --> P[Evento remove classe sr-only do alerta]
