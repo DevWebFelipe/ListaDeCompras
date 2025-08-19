@@ -24,7 +24,7 @@ QuickList é uma aplicação web simples que permite ao usuário adicionar e rem
 graph TD
     A[Usuário digita no input] --> B[Clica em 'Adicionar item']
     B --> C[Evento submit é interceptado pelo JS]
-    C --> D[Faz trim() e verifica valor vazio]
+    C --> D[Faz trim e verifica valor vazio]
     D -->|valor válido| E[Chama addNewListItem(value)]
     E --> F[Cria <li> com input, label e botão]
     F --> G[Adiciona <li> na UL da lista]
