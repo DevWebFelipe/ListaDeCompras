@@ -6,3 +6,4 @@
 @import url("header.css"); /* seções específicas */
 @import url("main.css");
 @import url("styles.css"); /* ajustes finais, overrides */
+@import url("footer.css"); /* rodapé, alertas, etc. */

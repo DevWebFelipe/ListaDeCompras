@@ -8,6 +8,11 @@
     align-items: center;
     gap: 0.5rem;
 
+    & img {
+      width: 1.9375rem;
+      height: 1.5rem;
+    }
+
     & h1 {
       font-family: var(--ff-sora);
       font-size: 1.5rem;
@@ -18,7 +23,11 @@
   }
 
   & a {
-    color: var(--color-brand);
+    color: var(--color-brand-hover);
+
+    &:hover {
+      color: var(--color-brand);
+    }
   }
 }
 

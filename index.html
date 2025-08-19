@@ -6,6 +6,10 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Projeto com finalidade de criar uma lista de compras dinâmica."
+    />
     <title>Lista de compras</title>
 
     <link
@@ -50,21 +54,22 @@
         <h2 id="list-title" class="sr-only">Itens da lista de compras</h2>
 
         <ul class="list"></ul>
-
-        <div id="alert" class="sr-only">
-          <img
-            src="assets/icons/warning-circle-filled.svg"
-            alt="Alerta indicando que o item foi removido"
-          />
-          <span>O item foi removido da lista</span>
-          <button
-            id="close-alert"
-            aria-label="Fechar mensagem de alerta"
-          ></button>
-        </div>
       </section>
     </main>
 
+    <footer id="footer" class="container">
+      <div id="alert" class="sr-only">
+        <img
+          src="assets/icons/warning-circle-filled.svg"
+          alt="Alerta indicando que o item foi removido"
+        />
+        <span>O item foi removido da lista</span>
+        <button
+          id="close-alert"
+          aria-label="Fechar mensagem de alerta"
+        ></button>
+      </div>
+    </footer>
     <script src="assets/scripts/script.js"></script>
   </body>
 </html>
