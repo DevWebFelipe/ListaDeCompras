@@ -1,0 +1,64 @@
+#main {
+  padding-top: 1rem;
+
+  & h2 {
+    padding-bottom: 2.75rem;
+  }
+
+  & fieldset {
+    padding-bottom: 2.5rem;
+  }
+
+  & .list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  & #alert {
+    margin-top: 2.25rem;
+    background: var(--color-danger);
+    color: var(--always-white);
+
+    border-radius: 0.5rem;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    padding: 0.75rem;
+
+    & span {
+      width: 100%;
+    }
+
+    & #close-alert {
+      width: 1.5rem;
+      height: 1.5rem;
+      background: url("../icons/delete-small.svg") no-repeat center
+        var(--color-danger);
+
+      &:hover {
+        background-color: var(--color-danger-hover);
+      }
+    }
+  }
+}
+
+@media (width <= 540px) {
+  #main {
+    fieldset {
+      flex-direction: column;
+      width: 100%;
+
+      & button {
+        width: 100%;
+      }
+
+      & input[type="text"] {
+        width: 100%;
+        margin: 0 auto;
+      }
+    }
+  }
+}

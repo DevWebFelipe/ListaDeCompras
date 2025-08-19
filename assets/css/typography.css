@@ -1,0 +1,24 @@
+:root {
+  --ff: "Inter", sans-serif;
+  --ff-sora: "Sora", sans-serif;
+  --title: 700 1.5rem/2rem var(--ff);
+  --label: 600 1rem/1.25rem var(--ff);
+  --paragraph: 500 1rem/1.25rem var(--ff);
+  --link: 500 0.825rem/1rem var(--ff);
+}
+
+.title {
+  font: var(--title);
+}
+
+.label {
+  font: var(--label);
+}
+
+.paragraph {
+  font: var(--paragraph);
+}
+
+.link {
+  font: var(--link);
+}

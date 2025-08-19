@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans+Sora+Sompeng:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/index.css" />
+  </head>
+  <body>
+    <header id="header" class="container">
+      <div class="title">
+        <img src="assets/icons/logo.svg" alt="Logo do site" />
+        <h1>quicklist</h1>
+      </div>
+
+      <a href="#" class="link" aria-label="Voltar para página anterior">
+        <- Voltar
+      </a>
+    </header>
+
+    <main id="main" class="container">
+      <form>
+        <header>
+          <h2 class="title">Compras da semana</h2>
+
+          <fieldset>
+            <legend class="sr-only">Adicionar itens na lista de compra</legend>
+            <input
+              type="text"
+              placeholder="Adicione um novo item"
+              class="input-wrapper"
+              id="new-item-input"
+            />
+            <button id="add-item-buttom" type="submit" class="button">
+              Adcionar item
+            </button>
+          </fieldset>
+        </header>
+      </form>
+
+      <section id="list" aria-labelledby="list-title">
+        <h2 id="list-title" class="sr-only">Itens da lista de compras</h2>
+        <ul class="list">
+          <li class="list-item">
+            <input
+              type="checkbox"
+              name="list-item"
+              id="item-1"
+              class="list-item-checkbox"
+              aria-label="Marcar item como pego"
+            />
+            <label for="item-1" class="list-item-description">
+              Pão de forma
+            </label>
+            <button
+              type="button"
+              class="list-item-delete"
+              aria-label="Excluir item da lista de compras"
+            ></button>
+          </li>
+
+          <li class="list-item">
+            <input
+              type="checkbox"
+              name="list-item"
+              id="item-2"
+              class="list-item-checkbox"
+              aria-label="Marcar item como pego"
+            />
+            <label for="item-2" class="list-item-description">Café preto</label>
+            <button
+              type="button"
+              class="list-item-delete"
+              aria-label="Excluir item da lista de compras"
+            ></button>
+          </li>
+
+          <li class="list-item">
+            <input
+              type="checkbox"
+              name="list-item"
+              id="item-3"
+              class="list-item-checkbox"
+              aria-label="Marcar item como pego"
+            />
+            <label for="item-3" class="list-item-description">
+              Suco de laranja
+            </label>
+            <button
+              type="button"
+              class="list-item-delete"
+              aria-label="Excluir item da lista de compras"
+            ></button>
+          </li>
+
+          <li class="list-item">
+            <input
+              type="checkbox"
+              name="list-item"
+              id="item-4"
+              class="list-item-checkbox"
+              aria-label="Marcar item como pego"
+            />
+            <label for="item-4" class="list-item-description">Bolacha</label>
+            <button
+              type="button"
+              class="list-item-delete"
+              aria-label="Excluir item da lista de compras"
+            ></button>
+          </li>
+        </ul>
+
+        <div id="alert">
+          <img
+            src="assets/icons/warning-circle-filled.svg"
+            alt="Alerta indicando que o item foi removido"
+          />
+          <span>O item foi removido da lista</span>
+          <button
+            id="close-alert"
+            aria-label="Fechar mensagem de alerta"
+          ></button>
+        </div>
+      </section>
+    </main>
+
+    <script src="assets/scripts/script.js"></script>
+  </body>
+</html>

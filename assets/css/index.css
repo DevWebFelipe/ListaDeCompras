@@ -1,0 +1,8 @@
+@import url("reset.css"); /* zera tudo primeiro */
+@import url("variables.css"); /* define tokens (cores, spacing, etc.) */
+@import url("typography.css"); /* fontes, tamanhos de texto */
+@import url("global.css"); /* estilos base, body, container, etc. */
+@import url("components.css"); /* botões, inputs, etc. */
+@import url("header.css"); /* seções específicas */
+@import url("main.css");
+@import url("styles.css"); /* ajustes finais, overrides */
