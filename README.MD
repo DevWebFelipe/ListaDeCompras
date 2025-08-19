@@ -1,5 +1,3 @@
-## README - QuickList
-
 # QuickList - Lista de Compras
 
 QuickList é uma aplicação web simples e intuitiva para gerenciar listas de compras. Permite adicionar, marcar como concluído e remover itens, com feedback visual para o usuário.
@@ -64,18 +62,18 @@ QuickList foi desenvolvida para facilitar o gerenciamento de listas de compras, 
 
 ```mermaid
 graph TD
-   A[Usuário digita item no campo de texto] --> B[Clica em "Adicionar item"]
+   A[Usuario digita item no campo de texto] --> B[Clica em Adicionar item]
    B --> C[JS intercepta evento submit]
-   C --> D[Valida se o campo não está vazio]
-   D -->|Válido| E[Cria novo item na lista]
-   E --> F[Adiciona <li> com checkbox, label e botão de remover]
+   C --> D[Valida se o campo nao esta vazio]
+   D -->|Valido| E[Cria novo item na lista]
+   E --> F[Adiciona li com checkbox, label e botao de remover]
    F --> G[Limpa campo de texto para novo item]
 
-   subgraph Remoção de Item
-   H[Usuário clica no botão "X"] --> I[Evento delegado identifica o alvo]
-   I --> J[Remove o <li> correspondente]
-   J --> K[Exibe alerta de remoção]
-   K --> L[Usuário pode fechar alerta manualmente]
+   subgraph Remocao de Item
+   H[Usuario clica no botao X] --> I[Evento delegado identifica o alvo]
+   I --> J[Remove o li correspondente]
+   J --> K[Exibe alerta de remocao]
+   K --> L[Usuario pode fechar alerta manualmente]
    end
 ```
 
