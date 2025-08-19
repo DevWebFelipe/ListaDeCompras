@@ -1,55 +1,72 @@
+// Garantir um id unico para cada item criado
 let idItemList = 0
 
-const newItemInput = document.getElementById("new-item-input")
-const form = document.querySelector("form")
+const newItemInput = document.getElementById("new-item-input") // campo do input
+const form = document.querySelector("form") // formulário
+const listItem = document.querySelector(".list") // UL da lista de compras
+const alert = document.querySelector("#alert") // alerta de exclusão
+const buttonCloseAlert = document.getElementById("close-alert") // botão de fechar alerta
+
+// Evento do botão Adicionar item
 form.onsubmit = (event) => {
-  event.preventDefault()
+  event.preventDefault() // evita que a página recarregue
 
-  addNewListItem()
+  const value = newItemInput.value.trim() // pega o valor do input sem espaços
+  if (!value) {
+    return
+  }
 
-  idItemList++
+  addNewListItem(value)
+  idItemList++ // incrementa o ID para o próximo item
+  newItemInput.value = ""
 }
 
-const listItem = document.querySelector(".list")
-function addNewListItem() {
+function addNewListItem(value) {
+  // Criação de elementos HTML locais para sempre inserir um novo
   const newListItem = document.createElement("li")
   const newInput = document.createElement("input")
   const newLabel = document.createElement("label")
   const newButton = document.createElement("button")
 
-  newListItem.classList.add("list-item")
-
-  newInput.classList.add("list-item-checkbox")
-  newInput.setAttribute("type", "checkbox")
-  newInput.setAttribute("name", "list-item")
-  newInput.setAttribute("id", "item-" + idItemList)
+  // Adiciona classes e atributos para o input (checkbox)
+  newInput.type = "checkbox"
+  newInput.name = "list-item"
+  newInput.id = "item-" + idItemList
   newInput.setAttribute("aria-label", "Marcar item como pego")
+  newInput.classList.add("list-item-checkbox")
 
-  newLabel.classList.add("list-item-description")
+  // Configura o label para o checkbox
   newLabel.setAttribute("for", "item-" + idItemList)
-  newLabel.textContent = newItemInput.value
+  newLabel.textContent = value
+  newLabel.classList.add("list-item-description")
 
-  newButton.classList.add("list-item-delete")
+  // Configura o botão de deletar
+  newButton.type = "button"
   newButton.setAttribute("aria-label", "Excluir item da lista de compras")
-  newButton.setAttribute("type", "button")
+  newButton.classList.add("list-item-delete")
 
-  newButton.addEventListener("click", () => {
-    alert.classList.remove("sr-only")
-  })
-
+  // Adiciona todos os elementos dentro do <li>
+  newListItem.classList.add("list-item")
   newListItem.append(newInput, newLabel, newButton)
+
+  // Adiciona o <li> na lista (no início). Assim o mais recente sempre virá primeiro
   listItem.prepend(newListItem)
 }
 
-const alert = document.querySelector("#alert")
-const buttonListItemDelete = document.getElementsByClassName("list-item-delete")
-buttonListItemDelete.onsubmit = (event) => {
-  event.preventDefault()
+listItem.addEventListener("click", (event) => {
+  // dentro da lista, verifica se o item clicado contém a classe list-item-delete
+  if (event.target.classList.contains("list-item-delete")) {
+    // se o item clicado tiver a classe, então vai pegar o pai desse item clicado
+    const item = event.target.closest("li") // pega o <li> pai do item clicado
 
-  alert.classList.remove("sr-only")
-}
+    if (item) {
+      item.remove()
+    } // remove apenas o item clicado
 
-const buttonCloseAlert = document.getElementById("close-alert")
+    alert.classList.remove("sr-only") // mostra alerta
+  }
+})
+
 buttonCloseAlert.addEventListener("click", (event) => {
   event.preventDefault()
 
