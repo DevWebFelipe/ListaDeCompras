@@ -1,96 +1,99 @@
+## README - QuickList
+
 # QuickList - Lista de Compras
 
-## Descrição da aplicação
+QuickList é uma aplicação web simples e intuitiva para gerenciar listas de compras. Permite adicionar, marcar como concluído e remover itens, com feedback visual para o usuário.
 
-QuickList é uma aplicação web simples que permite ao usuário adicionar e remover itens de uma lista de compras de forma dinâmica.
+---
 
-### Funcionalidades
+## Índice
 
-- Adicionar novos itens à lista.
+- [Descrição](#descrição)
+- [Funcionalidades](#funcionalidades)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Estrutura de Pastas](#estrutura-de-pastas)
+- [Fluxo da Aplicação](#fluxo-da-aplicação)
+- [Detalhes de Implementação](#detalhes-de-implementação)
+- [Observações](#observações)
+
+---
+
+## Descrição
+
+QuickList foi desenvolvida para facilitar o gerenciamento de listas de compras, tornando o processo rápido e eficiente. O usuário pode adicionar itens, marcar como concluídos e remover itens, recebendo alertas visuais para cada ação.
+
+---
+
+## Funcionalidades
+
+- Adicionar novos itens à lista de compras.
 - Marcar itens como concluídos (checkbox).
 - Remover itens específicos da lista.
-- Exibir alerta quando um item é removido.
+- Exibir alerta ao remover um item.
 - Fechar alerta manualmente.
 
-### Estrutura HTML
+---
 
-- `<form>`: Formulário para adicionar novos itens.
-- `<ul class="list">`: Lista que armazena os itens.
-- `<div id="alert">`: Alerta que é exibido ao remover um item.
+## Tecnologias Utilizadas
 
-### Fluxo da aplicação
+- **HTML5**: Estrutura da aplicação.
+- **CSS3**: Estilização baseada em layout do Figma.
+- **JavaScript (ES6+)**: Lógica de manipulação da lista e eventos.
+
+---
+
+## Estrutura de Pastas
+
+```
+
+/ (raiz do projeto)
+│
+├── index.html
+├── assets/
+│ ├── css/
+│ │ └── index.css
+│ └── scripts/
+│ └── script.js
+└── README.md
+
+```
+
+---
+
+## Fluxo da Aplicação
 
 ```mermaid
 graph TD
-    A[Usuário digita no input] --> B[Clica em 'Adicionar item']
-    B --> C[Evento submit é interceptado pelo JS]
-    C --> D[Faz trim() e verifica valor vazio]
-    D -->|valor válido| E[Chama addNewListItem(value)]
-    E --> F[Cria <li> com input, label e botão]
-    F --> G[Adiciona <li> na UL da lista]
-    G --> H[Input limpo para novo item]
+   A[Usuário digita item no campo de texto] --> B[Clica em "Adicionar item"]
+   B --> C[JS intercepta evento submit]
+   C --> D[Valida se o campo não está vazio]
+   D -->|Válido| E[Cria novo item na lista]
+   E --> F[Adiciona <li> com checkbox, label e botão de remover]
+   F --> G[Limpa campo de texto para novo item]
 
-    subgraph Deleção
-    I[Usuário clica em botão X] --> J[Evento delegado no UL]
-    J --> K[Verifica se target possui class 'list-item-delete']
-    K --> L[Pega <li> mais próximo com closest('li')]
-    L --> M[Remove <li> do DOM]
-    M --> N[Mostra alerta removido]
-    end
-
-    O[Usuário clica no botão de fechar alerta] --> P[Evento remove classe sr-only do alerta]
+   subgraph Remoção de Item
+   H[Usuário clica no botão "X"] --> I[Evento delegado identifica o alvo]
+   I --> J[Remove o <li> correspondente]
+   J --> K[Exibe alerta de remoção]
+   K --> L[Usuário pode fechar alerta manualmente]
+   end
 ```
 
-### Pontos importantes do código JS
+---
 
-1. **Contador `idItemList`**: garante IDs únicos para cada checkbox.
-2. **Função `addNewListItem(value)`**:
+## Detalhes de Implementação
 
-   - Cria dinamicamente `<li>`, `<input>`, `<label>` e `<button>`.
-   - Adiciona atributos e classes para acessibilidade e estilo.
-   - Adiciona o item na lista usando `appendChild`.
+- **IDs únicos**: Cada item recebe um ID exclusivo para associar checkbox e label.
+- **Função `addNewListItem(value)`**: Cria dinamicamente os elementos necessários e adiciona à lista.
+- **Delegação de eventos**: Listeners únicos para ações de remoção, tornando o código escalável.
+- **Validação**: Impede a adição de itens vazios e limpa o campo após adicionar.
+- **Alertas**: Feedback visual ao remover itens, com opção de fechar manualmente.
 
-3. **Delegação de eventos para remoção**:
+---
 
-   - Evita criar listeners individuais para cada botão.
-   - Verifica se o alvo do clique é um botão de deletar.
-   - Remove apenas o `<li>` correspondente.
+## Observações
 
-4. **Alertas**:
-
-   - Mostra quando um item é removido.
-   - Pode ser fechado manualmente.
-
-5. **Validação de input**:
-
-   - Evita criar itens vazios.
-   - Limpa o campo após adicionar.
-
-### Principais erros corrigidos
-
-- Não criar elementos fora da função `addNewListItem`.
-- Não usar `onsubmit` em botões.
-- Não tentar adicionar listeners diretamente em elementos dinâmicos com `getElementsByClassName`.
-- Garantir que cada item é independente e removível individualmente.
-- Delegação de eventos para remover itens dinamicamente adicionados.
-
-### Tecnologias utilizadas
-
-- HTML5
-- CSS3 (classes já definidas no Figma)
-- JavaScript (ES6+)
-
-### Estrutura de arquivos
-
-```
-index.html
-assets/
-  css/index.css
-  scripts/script.js
-```
-
-### Observações
-
-- O layout e as classes seguem o Figma fornecido.
-- A lógica de adição e remoção de itens é totalmente controlada pelo JavaScript.
-- Delegação de eventos torna o código escalável para qualquer quantidade de itens.
+- O layout segue as definições do Figma.
+- Toda a lógica de manipulação da lista é feita em JavaScript puro.
+- A delegação de eventos garante performance e escalabilidade.
+- O projeto é facilmente adaptável para novas funcionalidades.
