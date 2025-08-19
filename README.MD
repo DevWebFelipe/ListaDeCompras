@@ -33,7 +33,7 @@ graph TD
     subgraph Deleção
     I[Usuário clica em botão X] --> J[Evento delegado no UL]
     J --> K[Verifica se target possui class 'list-item-delete']
-    K --> L[Pega <li> mais próximo com closest('li')]
+    K --> L[Pega <li> mais próximo com closest 'li']
     L --> M[Remove <li> do DOM]
     M --> N[Mostra alerta removido]
     end
