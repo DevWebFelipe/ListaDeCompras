@@ -25,7 +25,7 @@ graph TD
     A[Usuário digita no input] --> B[Clica em 'Adicionar item']
     B --> C[Evento submit é interceptado pelo JS]
     C --> D[Faz trim e verifica valor vazio]
-    D -->|valor válido| E[Chama addNewListItem(value)]
+    D -->|valor válido| E[Chama addNewListItem]
     E --> F[Cria <li> com input, label e botão]
     F --> G[Adiciona <li> na UL da lista]
     G --> H[Input limpo para novo item]
