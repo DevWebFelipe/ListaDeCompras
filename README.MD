@@ -64,14 +64,6 @@ graph TD
    - Evita criar itens vazios.
    - Limpa o campo após adicionar.
 
-### Principais erros corrigidos
-
-- Não criar elementos fora da função `addNewListItem`.
-- Não usar `onsubmit` em botões.
-- Não tentar adicionar listeners diretamente em elementos dinâmicos com `getElementsByClassName`.
-- Garantir que cada item é independente e removível individualmente.
-- Delegação de eventos para remover itens dinamicamente adicionados.
-
 ### Tecnologias utilizadas
 
 - HTML5
